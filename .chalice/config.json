@@ -1,0 +1,31 @@
+{
+  "version": "2.0",
+  "app_name": "chalice_plus_example",
+  "automatic_layer": true,
+  "ssm_parameters": [
+    "DATABASE_USER",
+    "DATABASE_PASSWORD",
+    "DATABASE_HOST",
+    "DATABASE_NAME"
+  ],
+  "stages": {
+    "local": {
+      "api_gateway_stage": "api",
+      "environment_variables": {
+        "STAGE": "local",
+        "DATABASE_NAME": "chalice_plus_example",
+        "DATABASE_USER": "chalice_plus_example",
+        "DATABASE_PASSWORD": "password",
+        "DATABASE_HOST": "127.0.0.1"
+      }
+    },
+    "dev": {
+      "api_gateway_stage": "api",
+      "environment_variables": {
+        "STAGE": "dev",
+        "COGNITO_USER_POOL_ARN": "...",
+        "COGNITO_USER_POOL_NAME": "..."
+      }
+    }
+  }
+}
